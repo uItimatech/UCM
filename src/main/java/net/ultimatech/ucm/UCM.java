@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -26,15 +27,13 @@ public class UCM
     public static final String MODID = "ucm";
 
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
 
     public UCM() {
 
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-
         UCMEntityTypes.register(eventBus);
-
 
         // Register the setup method for modloading
         eventBus.addListener(this::setup);
@@ -46,7 +45,7 @@ public class UCM
         eventBus.addListener(this::doClientStuff);
 
         // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(eventBus);
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -67,6 +66,7 @@ public class UCM
     {
         // some example code to receive and process InterModComms from other mods
     }
+
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {

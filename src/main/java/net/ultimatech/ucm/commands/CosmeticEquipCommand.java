@@ -25,6 +25,7 @@ public class CosmeticEquipCommand {
 
     private int equip(CommandDispatcher<CommandSource> dispatcher, CommandContext<CommandSource> context) {
         Entity entity = context.getSource().getEntity();
+
         if (entity instanceof PlayerEntity) {
             //Summons a new CostmeticRoigada riding the player
 

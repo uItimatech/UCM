@@ -12,26 +12,23 @@ import net.ultimatech.ucm.entity.UCMEntityTypes;
 
 import java.util.UUID;
 
-public class CosmeticRoigada extends Entity {
+public class CosmeticRoigada extends MobEntity {
 
     private UUID owner;
 
-    public CosmeticRoigada(EntityType<?> entityType, World world) {
+    public CosmeticRoigada(EntityType<? extends MobEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Override
-    protected void registerData() {
-    }
-
-
-    protected void readAdditional(CompoundNBT compoundNBT) {
+    public void readAdditional(CompoundNBT compoundNBT) {
         if (compoundNBT.hasUniqueId("Owner")) {
             this.owner = compoundNBT.getUniqueId("Owner");
         }
     }
 
-    protected void writeAdditional(CompoundNBT compoundNBT) {
+    @Override
+    public void writeAdditional(CompoundNBT compoundNBT) {
         if (this.owner != null) {
             compoundNBT.putUniqueId("Owner", this.owner);
         }

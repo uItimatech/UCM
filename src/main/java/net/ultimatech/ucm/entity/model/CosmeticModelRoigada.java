@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.ultimatech.ucm.entity.cosmetic.CosmeticRoigada;
 
-public class CosmeticModelRoigada<C extends CosmeticRoigada> extends EntityModel<Entity> {
+public class CosmeticModelRoigada<C extends CosmeticRoigada> extends EntityModel<C> {
 
 	private final ModelRenderer body;
 	private final ModelRenderer cube_r1;
@@ -33,7 +33,7 @@ public class CosmeticModelRoigada<C extends CosmeticRoigada> extends EntityModel
 	}
 
 	@Override
-	public void setRotationAngles(Entity entity, float v, float v1, float v2, float v3, float v4) {
+	public void setRotationAngles(C entity, float v, float v1, float v2, float v3, float v4) {
 
 	}
 

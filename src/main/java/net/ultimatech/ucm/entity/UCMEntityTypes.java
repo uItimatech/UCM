@@ -11,14 +11,14 @@ import net.ultimatech.ucm.UCM;
 import net.ultimatech.ucm.entity.cosmetic.CosmeticRoigada;
 
 public class UCMEntityTypes {
+
     public static DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, UCM.MODID);
 
-
     public static final RegistryObject<EntityType<CosmeticRoigada>> COSMETIC_ROIGADA =
-            ENTITY_TYPES.register("cosmetic_roigada", () -> EntityType.Builder.create(CosmeticRoigada::new, EntityClassification.MISC)
-                    .size(1.0f, 1.0f)
+            ENTITY_TYPES.register("cosmetic_roigada", () -> EntityType.Builder.create(CosmeticRoigada::new,
+                                    EntityClassification.MISC)
+                    .size(1f, 1f)
                     .build(new ResourceLocation(UCM.MODID, "cosmetic_roigada").toString()));
-
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
