@@ -15,9 +15,10 @@ public class UCMEntityTypes {
     public static DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, UCM.MODID);
 
     public static final RegistryObject<EntityType<CosmeticRoigadaEntity>> COSMETIC_ROIGADA =
-            ENTITY_TYPES.register("cosmetic_roigada", () -> EntityType.Builder.create(CosmeticRoigadaEntity::new,
+            ENTITY_TYPES.register("cosmetic_roigada",
+                    () -> EntityType.Builder.create(CosmeticRoigadaEntity::new,
                                     EntityClassification.MISC)
-                    .size(1.0f, 1.0f)
+                    .size(1f, 1f)
                     .build(new ResourceLocation(UCM.MODID, "cosmetic_roigada").toString()));
 
     public static void register(IEventBus eventBus) {
