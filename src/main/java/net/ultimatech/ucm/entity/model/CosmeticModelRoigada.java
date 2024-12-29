@@ -7,10 +7,9 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.ultimatech.ucm.entity.cosmetic.CosmeticRoigada;
+import net.ultimatech.ucm.entity.cosmetic.CosmeticRoigadaEntity;
 
-public class CosmeticModelRoigada<C extends CosmeticRoigada> extends EntityModel<C> {
+public class CosmeticModelRoigada <C extends CosmeticRoigadaEntity> extends EntityModel<C> {
 
 	private final ModelRenderer body;
 	private final ModelRenderer cube_r1;

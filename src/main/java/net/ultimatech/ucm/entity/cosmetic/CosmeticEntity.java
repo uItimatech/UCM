@@ -2,21 +2,20 @@ package net.ultimatech.ucm.entity.cosmetic;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.play.server.SSpawnObjectPacket;
 import net.minecraft.world.World;
-import net.ultimatech.ucm.entity.UCMEntityTypes;
 
 import java.util.UUID;
 
-public class CosmeticRoigada extends MobEntity {
+public class CosmeticEntity extends Entity {
 
-    private UUID owner;
+    protected UUID owner;
 
-    public CosmeticRoigada(EntityType<? extends MobEntity> entityType, World world) {
+    public CosmeticEntity(EntityType<? extends Entity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -34,6 +33,10 @@ public class CosmeticRoigada extends MobEntity {
         }
     }
 
+    public UUID getOwner() {
+        return this.owner;
+    }
+
     public void setOwner(UUID owner) {
         this.owner = owner;
     }
@@ -45,10 +48,20 @@ public class CosmeticRoigada extends MobEntity {
     }
 
     @Override
+    protected void registerData() {}
+
+    @Override
     public void tick() {
         super.tick();
         if (owner == null || owner == this.getUniqueID()) {
-            //this.remove();
+            this.remove();
         }
+    }
+
+    // Here is the method that will be used to spawn the entity from outside this class within the world considering the previous methods
+    public void spawnAndAssign(World world, PlayerEntity player) {
+        this.setPosition(player.getPosX(), player.getPosY(), player.getPosZ());
+        this.setOwner(player.getUniqueID());
+        world.addEntity(this);
     }
 }

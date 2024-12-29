@@ -8,16 +8,16 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.ultimatech.ucm.UCM;
-import net.ultimatech.ucm.entity.cosmetic.CosmeticRoigada;
+import net.ultimatech.ucm.entity.cosmetic.CosmeticRoigadaEntity;
 
 public class UCMEntityTypes {
 
     public static DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, UCM.MODID);
 
-    public static final RegistryObject<EntityType<CosmeticRoigada>> COSMETIC_ROIGADA =
-            ENTITY_TYPES.register("cosmetic_roigada", () -> EntityType.Builder.create(CosmeticRoigada::new,
+    public static final RegistryObject<EntityType<CosmeticRoigadaEntity>> COSMETIC_ROIGADA =
+            ENTITY_TYPES.register("cosmetic_roigada", () -> EntityType.Builder.create(CosmeticRoigadaEntity::new,
                                     EntityClassification.MISC)
-                    .size(1f, 1f)
+                    .size(1.0f, 1.0f)
                     .build(new ResourceLocation(UCM.MODID, "cosmetic_roigada").toString()));
 
     public static void register(IEventBus eventBus) {
