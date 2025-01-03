@@ -40,8 +40,8 @@ public class CosmeticRendererRoigada extends EntityRenderer<CosmeticRoigadaEntit
 
         IVertexBuilder ivertexbuilder = iRenderTypeBuffer.getBuffer(RenderType.getEntityCutout(this.getEntityTexture(cosmeticRoigadaEntity)));
         this.model.render(matrixStack, ivertexbuilder, i, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-        matrixStack.pop();
 
+        matrixStack.pop();
         super.render(cosmeticRoigadaEntity, f1, f2, matrixStack, iRenderTypeBuffer, i);
     }
 }
