@@ -18,8 +18,8 @@ public class UCMEntityTypes {
             ENTITY_TYPES.register("cosmetic_roigada",
                     () -> EntityType.Builder.create(CosmeticRoigadaEntity::new,
                                     EntityClassification.MISC)
-                    .size(1f, 1f)
-                    .build(new ResourceLocation(UCM.MODID, "cosmetic_roigada").toString()));
+                            .size(1f, 1f)
+                            .build(new ResourceLocation(UCM.MODID, "cosmetic_roigada").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

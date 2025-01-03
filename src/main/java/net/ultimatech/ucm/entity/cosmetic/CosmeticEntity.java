@@ -48,7 +48,7 @@ public abstract class CosmeticEntity extends Entity implements IRendersAsItem {
 
     @Override
     public IPacket<?> createSpawnPacket() {
-        return new SCosmeticSpawnPacket(this.getEntityId(), this.getUniqueID(), this.getType());
+        return new SCosmeticSpawnPacket(this.getEntityId(), this.getUniqueID(), this.getOwner(), this.getPosX(), this.getPosY(), this.getPosZ(), this.getType());
     }
 
     @Override
@@ -68,8 +68,9 @@ public abstract class CosmeticEntity extends Entity implements IRendersAsItem {
     }
 
     public void spawnAndAssign(World world, PlayerEntity player) {
-        this.setPosition(player.getPosX(), player.getPosY(), player.getPosZ());
         this.setOwner(player.getUniqueID());
+        this.setPosition(player.getPosX(), player.getPosY(), player.getPosZ());
+        this.startRiding(player, true);
         world.addEntity(this);
     }
 

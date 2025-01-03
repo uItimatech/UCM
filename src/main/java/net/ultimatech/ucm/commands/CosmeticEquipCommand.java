@@ -46,7 +46,6 @@ public class CosmeticEquipCommand {
             // Choice of cosmetic
             if (cosmeticName.equals(Cosmetic.COSMETIC_ROIGADA)) {
                 headCosmeticEntity = new CosmeticRoigadaEntity(UCMEntityTypes.COSMETIC_ROIGADA.get(), player.world);
-                headCosmeticEntity.setOwner(player.getUniqueID());
             }
 
             if (headCosmeticEntity != null) {

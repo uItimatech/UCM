@@ -14,14 +14,14 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.ultimatech.ucm.entity.UCMEntityTypes;
-import net.ultimatech.ucm.entity.render.CosmeticRendererRoigada;
+import net.ultimatech.ucm.entity.render.CosmeticRoigadaRenderer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(UCM.MODID)
-public class UCM
-{
+public class UCM {
+
     public static final String MODID = "ucm";
 
     // Directly reference a log4j logger.
@@ -46,18 +46,16 @@ public class UCM
         MinecraftForge.EVENT_BUS.register(eventBus);
     }
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
+    private void setup(final FMLCommonSetupEvent event) {
         // some preinit code
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        RenderingRegistry.registerEntityRenderingHandler(UCMEntityTypes.COSMETIC_ROIGADA.get(), CosmeticRendererRoigada::new);
+        RenderingRegistry.registerEntityRenderingHandler(UCMEntityTypes.COSMETIC_ROIGADA.get(), CosmeticRoigadaRenderer::new);
         //RenderingRegistry.registerEntityRenderingHandler(UCMEntityTypes.COSMETIC_ROIGADA.get(), manager -> new SpriteRenderer<>(manager, Minecraft.getInstance().getItemRenderer()));
     }
 
-    private void enqueueIMC(final InterModEnqueueEvent event)
-    {
+    private void enqueueIMC(final InterModEnqueueEvent event) {
         // some example code to dispatch IMC to another mod
     }
 

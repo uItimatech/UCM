@@ -12,14 +12,13 @@ public class CosmeticRoigadaEntity extends CosmeticEntity {
 
 	@Override
 	public void tick() {
+		super.tick();
 
 		PlayerEntity player = this.world.getPlayerByUuid(this.getOwner());
 
-		if (player == null) {
-			this.remove();
+		if (!player.isPassenger(this)) {
+			this.startRiding(player, true);
 		}
-
-		this.setPosition(player.getPosX(), player.getPosY()+1.5, player.getPosZ());
 		this.setRotation(player.rotationYaw, player.rotationPitch);
 	}
 }

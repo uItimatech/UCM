@@ -34,18 +34,22 @@ public class CosmeticUnequipTypeCommand {
             PlayerEntity player = (PlayerEntity) sourceEntity;
 
             List<CosmeticEntity> cosmeticEntityList = player.world.getEntitiesWithinAABB(CosmeticEntity.class, player.getBoundingBox().grow(1));
+            int size = cosmeticEntityList.size();
 
             for (CosmeticEntity cosmeticEntity : cosmeticEntityList) {
-                if (cosmeticEntity.getOwner() != null && cosmeticEntity.getOwner().equals(player.getUniqueID()) && cosmeticName.equals(Cosmetic.COSMETIC_ROIGADA)) {
+                if (cosmeticEntity.getOwner() != null && cosmeticEntity.getOwner().equals(player.getUniqueID())
+                        && cosmeticEntity.getType().getRegistryName().getPath().equals(cosmeticName)) {
+
+                    size--;
                     cosmeticEntity.remove();
                 }
             }
 
-            if (!cosmeticEntityList.isEmpty()) {
+            if (size != cosmeticEntityList.size()) {
                 context.getSource().sendFeedback(new StringTextComponent("Unequipped " + cosmeticEntityList.size() + " cosmetics"), true);
                 return 1;
             } else {
-                context.getSource().sendErrorMessage(new StringTextComponent("No cosmetics to unequip"));
+                context.getSource().sendErrorMessage(new StringTextComponent("No cosmetics have been unequipped"));
                 return 0;
             }
 
