@@ -33,13 +33,8 @@ public class CosmeticModelRoigada <C extends CosmeticRoigadaEntity> extends Enti
 
 	@Override
 	public void setRotationAngles(C entity, float v, float v1, float v2, float v3, float v4) {
-
+		this.body.rotateAngleY = v2;
 	}
-
-//	@Override
-//	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
-//		//previously the render function, render code was moved to a method below
-//	}
 
 	@Override
 	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){

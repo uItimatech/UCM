@@ -13,8 +13,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.StringTextComponent;
 import net.ultimatech.ucm.UCM;
 import net.ultimatech.ucm.entity.UCMEntityTypes;
-import net.ultimatech.ucm.entity.cosmetic.CosmeticRoigadaEntity;
 import net.ultimatech.ucm.entity.cosmetic.CosmeticEntity;
+import net.ultimatech.ucm.entity.cosmetic.CosmeticRoigadaEntity;
 
 public class CosmeticEquipCommand {
 

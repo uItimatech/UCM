@@ -1,10 +1,8 @@
 package net.ultimatech.ucm;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -55,6 +53,7 @@ public class UCM
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(UCMEntityTypes.COSMETIC_ROIGADA.get(), CosmeticRendererRoigada::new);
+        //RenderingRegistry.registerEntityRenderingHandler(UCMEntityTypes.COSMETIC_ROIGADA.get(), manager -> new SpriteRenderer<>(manager, Minecraft.getInstance().getItemRenderer()));
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
