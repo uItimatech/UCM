@@ -2,10 +2,7 @@ package net.ultimatech.ucm.entity.cosmetic;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.IRendersAsItem;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.datasync.DataParameter;
@@ -16,7 +13,7 @@ import net.minecraft.world.World;
 import java.util.Optional;
 import java.util.UUID;
 
-public abstract class CosmeticEntity extends Entity implements IRendersAsItem {
+public abstract class CosmeticEntity extends Entity {
 
     public static final DataParameter<Optional<UUID>> OWNER = EntityDataManager.createKey(CosmeticEntity.class, DataSerializers.OPTIONAL_UNIQUE_ID);
 
@@ -82,10 +79,5 @@ public abstract class CosmeticEntity extends Entity implements IRendersAsItem {
     @Override
     public boolean canCollide(Entity p_241849_1_) {
         return false;
-    }
-
-    @Override
-    public ItemStack getItem() {
-        return new ItemStack(Items.PUMPKIN);
     }
 }

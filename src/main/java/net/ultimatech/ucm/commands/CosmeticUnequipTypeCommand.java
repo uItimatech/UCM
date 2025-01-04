@@ -46,7 +46,7 @@ public class CosmeticUnequipTypeCommand {
             }
 
             if (size != cosmeticEntityList.size()) {
-                context.getSource().sendFeedback(new StringTextComponent("Unequipped " + cosmeticEntityList.size() + " cosmetics"), true);
+                context.getSource().sendFeedback(new StringTextComponent("Unequipped " + (cosmeticEntityList.size()-size) + " cosmetics"), true);
                 return 1;
             } else {
                 context.getSource().sendErrorMessage(new StringTextComponent("No cosmetics have been unequipped"));

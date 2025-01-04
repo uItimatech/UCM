@@ -64,6 +64,10 @@ public class SCosmeticSpawnPacket implements IPacket<IClientPlayNetHandler> {
 
 		if (entitytype == UCMEntityTypes.COSMETIC_ROIGADA.get()) {
 			entity = new CosmeticRoigadaEntity(UCMEntityTypes.COSMETIC_ROIGADA.get(), Minecraft.getInstance().world);
+		} else if (entitytype == UCMEntityTypes.COSMETIC_SKELENOX.get()) {
+			entity = new CosmeticSkelenoxEntity(UCMEntityTypes.COSMETIC_SKELENOX.get(), Minecraft.getInstance().world);
+		} else if (entitytype == UCMEntityTypes.COSMETIC_INSECATEUR.get()) {
+			entity = new CosmeticInsecateurEntity(UCMEntityTypes.COSMETIC_INSECATEUR.get(), Minecraft.getInstance().world);
 		}
 
 		if (entity != null) {

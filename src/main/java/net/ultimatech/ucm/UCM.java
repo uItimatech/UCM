@@ -14,7 +14,9 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.ultimatech.ucm.entity.UCMEntityTypes;
+import net.ultimatech.ucm.entity.render.CosmeticInsecateurRenderer;
 import net.ultimatech.ucm.entity.render.CosmeticRoigadaRenderer;
+import net.ultimatech.ucm.entity.render.CosmeticSkelenoxRenderer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -52,7 +54,8 @@ public class UCM {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(UCMEntityTypes.COSMETIC_ROIGADA.get(), CosmeticRoigadaRenderer::new);
-        //RenderingRegistry.registerEntityRenderingHandler(UCMEntityTypes.COSMETIC_ROIGADA.get(), manager -> new SpriteRenderer<>(manager, Minecraft.getInstance().getItemRenderer()));
+        RenderingRegistry.registerEntityRenderingHandler(UCMEntityTypes.COSMETIC_SKELENOX.get(), CosmeticSkelenoxRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(UCMEntityTypes.COSMETIC_INSECATEUR.get(), CosmeticInsecateurRenderer::new);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

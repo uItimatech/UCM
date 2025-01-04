@@ -8,7 +8,9 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.ultimatech.ucm.UCM;
+import net.ultimatech.ucm.entity.cosmetic.CosmeticInsecateurEntity;
 import net.ultimatech.ucm.entity.cosmetic.CosmeticRoigadaEntity;
+import net.ultimatech.ucm.entity.cosmetic.CosmeticSkelenoxEntity;
 
 public class UCMEntityTypes {
 
@@ -20,6 +22,20 @@ public class UCMEntityTypes {
                                     EntityClassification.MISC)
                             .size(1f, 1f)
                             .build(new ResourceLocation(UCM.MODID, "cosmetic_roigada").toString()));
+
+    public static final RegistryObject<EntityType<CosmeticSkelenoxEntity>> COSMETIC_SKELENOX =
+            ENTITY_TYPES.register("cosmetic_skenelox",
+                    () -> EntityType.Builder.create(CosmeticSkelenoxEntity::new,
+                                    EntityClassification.MISC)
+                            .size(1f, 1f)
+                            .build(new ResourceLocation(UCM.MODID, "cosmetic_skenelox").toString()));
+
+    public static final RegistryObject<EntityType<CosmeticInsecateurEntity>> COSMETIC_INSECATEUR =
+            ENTITY_TYPES.register("cosmetic_insecateur",
+                    () -> EntityType.Builder.create(CosmeticInsecateurEntity::new,
+                                    EntityClassification.MISC)
+                            .size(1f, 1f)
+                            .build(new ResourceLocation(UCM.MODID, "cosmetic_insecateur").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

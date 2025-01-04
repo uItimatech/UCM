@@ -14,7 +14,9 @@ import net.minecraft.util.text.StringTextComponent;
 import net.ultimatech.ucm.UCM;
 import net.ultimatech.ucm.entity.UCMEntityTypes;
 import net.ultimatech.ucm.entity.cosmetic.CosmeticEntity;
+import net.ultimatech.ucm.entity.cosmetic.CosmeticInsecateurEntity;
 import net.ultimatech.ucm.entity.cosmetic.CosmeticRoigadaEntity;
+import net.ultimatech.ucm.entity.cosmetic.CosmeticSkelenoxEntity;
 
 public class CosmeticEquipCommand {
 
@@ -44,8 +46,13 @@ public class CosmeticEquipCommand {
             CosmeticEntity headCosmeticEntity = null;
 
             // Choice of cosmetic
+            // TODO: Replace by a clean list
             if (cosmeticName.equals(Cosmetic.COSMETIC_ROIGADA)) {
                 headCosmeticEntity = new CosmeticRoigadaEntity(UCMEntityTypes.COSMETIC_ROIGADA.get(), player.world);
+            } else if (cosmeticName.equals(Cosmetic.COSMETIC_SKELENOX)) {
+                headCosmeticEntity = new CosmeticSkelenoxEntity(UCMEntityTypes.COSMETIC_SKELENOX.get(), player.world);
+            } else if (cosmeticName.equals(Cosmetic.COSMETIC_INSECATEUR)) {
+                headCosmeticEntity = new CosmeticInsecateurEntity(UCMEntityTypes.COSMETIC_INSECATEUR.get(), player.world);
             }
 
             if (headCosmeticEntity != null) {

@@ -11,27 +11,27 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.vector.Quaternion;
 import net.ultimatech.ucm.UCM;
-import net.ultimatech.ucm.entity.cosmetic.CosmeticRoigadaEntity;
-import net.ultimatech.ucm.entity.model.CosmeticRoigadaModel;
+import net.ultimatech.ucm.entity.cosmetic.CosmeticSkelenoxEntity;
+import net.ultimatech.ucm.entity.model.CosmeticSkelenoxModel;
 
-public class CosmeticRoigadaRenderer extends EntityRenderer<CosmeticRoigadaEntity> {
+public class CosmeticSkelenoxRenderer extends EntityRenderer<CosmeticSkelenoxEntity> {
 
-    protected CosmeticRoigadaModel<CosmeticRoigadaEntity> model;
+    protected CosmeticSkelenoxModel<CosmeticSkelenoxEntity> model;
 
-    protected static final ResourceLocation TEXTURE = new ResourceLocation(UCM.MODID,"textures/entity/cosmetic_roigada.png");
+    protected static final ResourceLocation TEXTURE = new ResourceLocation(UCM.MODID,"textures/entity/cosmetic_skelenox.png");
 
-    public CosmeticRoigadaRenderer(EntityRendererManager entityRendererManager) {
+    public CosmeticSkelenoxRenderer(EntityRendererManager entityRendererManager) {
         super(entityRendererManager);
-        this.model = new CosmeticRoigadaModel();
+        this.model = new CosmeticSkelenoxModel();
     }
 
     @Override
-    public ResourceLocation getEntityTexture(CosmeticRoigadaEntity cosmeticRoigadaEntity) {
+    public ResourceLocation getEntityTexture(CosmeticSkelenoxEntity CosmeticSkelenoxEntity) {
         return TEXTURE;
     }
 
     @Override
-    public void render(CosmeticRoigadaEntity entityIn, float f1, float f2, MatrixStack matrixStack, IRenderTypeBuffer bufferIn, int i) {
+    public void render(CosmeticSkelenoxEntity entityIn, float f1, float f2, MatrixStack matrixStack, IRenderTypeBuffer bufferIn, int i) {
 
         PlayerEntity player = (PlayerEntity) this.renderManager.info.getRenderViewEntity();
         float sneakingFactor = player.isSneaking() && !player.abilities.isFlying ? -0.125F : 0.0F;
@@ -49,7 +49,7 @@ public class CosmeticRoigadaRenderer extends EntityRenderer<CosmeticRoigadaEntit
         Quaternion correctedRotation = new Quaternion(qx, qy, qz, qw);
 
         matrixStack.rotate(correctedRotation);
-        matrixStack.translate(0, -1.25 + sneakingFactor, 0);
+        matrixStack.translate(0, -0.35F + sneakingFactor, 0);
         IVertexBuilder ivertexbuilder = bufferIn.getBuffer(this.model.getRenderType(this.getEntityTexture(entityIn)));
 
         this.model.setRotationAngle(0,0,(float) Math.PI);
@@ -61,12 +61,12 @@ public class CosmeticRoigadaRenderer extends EntityRenderer<CosmeticRoigadaEntit
 
     // The entity will only render when the player is in third person or when the player is not the owner of the entity
     @Override
-    public boolean shouldRender(CosmeticRoigadaEntity cosmeticRoigadaEntity, ClippingHelper clippingHelper, double d1, double d2, double d3) {
-        PlayerEntity player = (PlayerEntity) cosmeticRoigadaEntity.world.getPlayerByUuid(cosmeticRoigadaEntity.getOwner());
+    public boolean shouldRender(CosmeticSkelenoxEntity cosmeticSkelenoxEntity, ClippingHelper clippingHelper, double d1, double d2, double d3) {
+        PlayerEntity player = (PlayerEntity) cosmeticSkelenoxEntity.world.getPlayerByUuid(cosmeticSkelenoxEntity.getOwner());
 
         if (player.isInvisible() || player.isSpectator() || player.isSwimming() || player.isElytraFlying())
             return false;
 
-        return this.getRenderManager().info.isThirdPerson() || (!cosmeticRoigadaEntity.getOwner().toString().equals(this.getRenderManager().info.getRenderViewEntity().getUniqueID().toString()));
+        return this.getRenderManager().info.isThirdPerson() || (!cosmeticSkelenoxEntity.getOwner().toString().equals(this.getRenderManager().info.getRenderViewEntity().getUniqueID().toString()));
     }
 }

@@ -4,9 +4,9 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
-public class CosmeticRoigadaEntity extends CosmeticEntity {
+public class CosmeticInsecateurEntity extends CosmeticEntity {
 
-	public CosmeticRoigadaEntity(EntityType<? extends CosmeticEntity> entityType, World world) {
+	public CosmeticInsecateurEntity(EntityType<? extends CosmeticEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
@@ -22,7 +22,7 @@ public class CosmeticRoigadaEntity extends CosmeticEntity {
 			if (!player.isPassenger(this)) {
 				this.startRiding(player, true);
 			}
-			this.setRotation(player.getRotationYawHead(), player.rotationPitch);
+			this.setRotation(player.rotationYawHead, player.rotationPitch);
 		}
 	}
 }
